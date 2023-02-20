@@ -1,4 +1,3 @@
---Създаавам таблица за клиенти
 CREATE TABLE customer (
     customer_id       INTEGER NOT NULL ,
     customer_name     VARCHAR2(30),
@@ -10,7 +9,6 @@ CREATE TABLE customer (
 
 ALTER TABLE customer ADD CONSTRAINT customer_pk PRIMARY KEY ( customer_id );
 
---Създавам таблица за служители
 CREATE TABLE employee (
     employee_id      INTEGER NOT NULL,
     employee_name    VARCHAR2(30),
@@ -22,7 +20,6 @@ CREATE TABLE employee (
 
 ALTER TABLE employee ADD CONSTRAINT employee_pk PRIMARY KEY ( employee_id );
 
---Създавам таблица за позиции на служители
 CREATE TABLE positions (
     position_id         INTEGER NOT NULL,
     employee_position   VARCHAR2(20),
@@ -31,7 +28,6 @@ CREATE TABLE positions (
 
 ALTER TABLE positions ADD CONSTRAINT position_pk PRIMARY KEY ( position_id );
 
---Създавам таблица за резервации
 CREATE TABLE reservation (
     reservation_id       INTEGER NOT NULL,
     customer_id          INTEGER NOT NULL,
@@ -45,7 +41,6 @@ CREATE TABLE reservation (
 
 ALTER TABLE reservation ADD CONSTRAINT reservation_pk PRIMARY KEY ( reservation_id );
 
---Създавам таблиа за стаи
 CREATE TABLE room (
     room_id       INTEGER NOT NULL,
     room_number   INTEGER,
@@ -56,7 +51,6 @@ CREATE TABLE room (
 
 ALTER TABLE room ADD CONSTRAINT room_pk PRIMARY KEY ( room_id );
 
---Създавам таблици за тип стаи
 CREATE TABLE room_type (
     type_id      INTEGER NOT NULL,
     type_name    VARCHAR2(20),
@@ -68,7 +62,7 @@ CREATE TABLE room_type (
 ALTER TABLE room_type ADD CONSTRAINT room_type_pk PRIMARY KEY ( type_id );
 
 
---Задавам foreign keys пораждащи връзките между отделните таблици
+--Foreign keys between the entities are set in the following rows
 ALTER TABLE employee
     ADD CONSTRAINT employee_position_fk FOREIGN KEY ( position_id )
         REFERENCES positions ( position_id ) ON DELETE CASCADE;
@@ -91,28 +85,28 @@ ALTER TABLE room
         
         
         
---добавяне на информация в таблицa Customer
-insert into Customer values(1,'Todor Todorov','BG,Varna,st.№4,ap.№16','0878122134');
-insert into Customer values(2,'Ivan Ivanov','BG,Vratsa,st.№22,ap.№1','0883548194');
-insert into Customer values(3,'Petq Petrova','BG,Sofia,st.№348,ap.№30','0898781234');
-insert into Customer values(4,'Katq Jeleva','BG,Plovdiv,st.№1,ap.№1','0882998126');
-insert into Customer values(5,'Peter Georgiev','BG,Burgas,st.№8,ap.№7','0893748555');
-insert into Customer values(6,'Kristiqn Tomov','BG,Smolqn,st.№11,ap.№20','0882778554');
-insert into Customer values(7,'Vasil Minov','BG,Pernik,st.№3,ap.№5','0881548111');
-insert into Customer values(8,'Elitsa Krusteva','BG,Dobrich,st.№1,ap.№7','0873739197');
-insert into Customer values(9,'Kalina Kirilova','BG,Vidin,st.№9,ap.№9','0893341144');
-insert into Customer values(10,'Simona Pencheva','BG,Petrich,st.№12,ap.№8','0882522117');
-insert into Customer values(11,'Simeon Tanev','BG,Varna,st.№9,ap.№13','0878548878');
-insert into Customer values(12,'Maria Toteva','BG,Plovdiv,st.№2,ap.№2','0888848194');
-insert into Customer values(13,'Andreq Maneva','BG,Sofia,st.№44,ap.№14','0883535355');
-insert into Customer values(14,'Silviq Vasileva','BG,Karnobat,st.№4,ap.№8','0882901345');
-insert into Customer values(15,'Galin Plamenov','BG,Burgas,st.№55,ap.№25','0883131366');
-insert into Customer values(16,'Viktoriq Ivanova','BG,Sofia,st.№15,ap.№15','0881515193');
-insert into Customer values(17,'Milen Todorov','BG,Pernik,st.№14,ap.№28','0891248112');
-insert into Customer values(18,'Dobri Dobrev','BG,Varna,st.№51,ap.№17','0873578118');
-insert into Customer values(19,'Malina Todorova','BG,Kalofer,st.№6,ap.№7','0877541452');
-insert into Customer values(20,'Zahari Dobrev','BG,Haskovo,st.№5,ap.№14','0886566191');
-insert into Customer values(21,'Elon Musk','USA,Texas,st.№75,h.№443','0884448191');
+
+insert into Customer values(1,'Todor Todorov','BG,Varna,st.В№4,ap.В№16','0878122134');
+insert into Customer values(2,'Ivan Ivanov','BG,Vratsa,st.В№22,ap.В№1','0883548194');
+insert into Customer values(3,'Petq Petrova','BG,Sofia,st.В№348,ap.В№30','0898781234');
+insert into Customer values(4,'Katq Jeleva','BG,Plovdiv,st.В№1,ap.В№1','0882998126');
+insert into Customer values(5,'Peter Georgiev','BG,Burgas,st.В№8,ap.В№7','0893748555');
+insert into Customer values(6,'Kristiqn Tomov','BG,Smolqn,st.В№11,ap.В№20','0882778554');
+insert into Customer values(7,'Vasil Minov','BG,Pernik,st.В№3,ap.В№5','0881548111');
+insert into Customer values(8,'Elitsa Krusteva','BG,Dobrich,st.В№1,ap.В№7','0873739197');
+insert into Customer values(9,'Kalina Kirilova','BG,Vidin,st.В№9,ap.В№9','0893341144');
+insert into Customer values(10,'Simona Pencheva','BG,Petrich,st.В№12,ap.В№8','0882522117');
+insert into Customer values(11,'Simeon Tanev','BG,Varna,st.В№9,ap.В№13','0878548878');
+insert into Customer values(12,'Maria Toteva','BG,Plovdiv,st.В№2,ap.В№2','0888848194');
+insert into Customer values(13,'Andreq Maneva','BG,Sofia,st.В№44,ap.В№14','0883535355');
+insert into Customer values(14,'Silviq Vasileva','BG,Karnobat,st.В№4,ap.В№8','0882901345');
+insert into Customer values(15,'Galin Plamenov','BG,Burgas,st.В№55,ap.В№25','0883131366');
+insert into Customer values(16,'Viktoriq Ivanova','BG,Sofia,st.В№15,ap.В№15','0881515193');
+insert into Customer values(17,'Milen Todorov','BG,Pernik,st.В№14,ap.В№28','0891248112');
+insert into Customer values(18,'Dobri Dobrev','BG,Varna,st.В№51,ap.В№17','0873578118');
+insert into Customer values(19,'Malina Todorova','BG,Kalofer,st.В№6,ap.В№7','0877541452');
+insert into Customer values(20,'Zahari Dobrev','BG,Haskovo,st.В№5,ap.В№14','0886566191');
+insert into Customer values(21,'Elon Musk','USA,Texas,st.В№75,h.В№443','0884448191');
 
 update customer
 set customer_name = 'Elitsa Encheva'
@@ -121,11 +115,10 @@ WHERE customer_name = 'Elitsa Krusteva';
 delete from Customer
 where customer_name ='Elon Musk';
 
-insert into Customer values(21,'Elon Musk','USA,Texas,st.№75,h.№443','0884448191');
+insert into Customer values(21,'Elon Musk','USA,Texas,st.В№75,h.В№443','0884448191');
 
 
 
---Добавяне на информация в таблица room_type
 insert into room_type values(1,'single',100.00);
 insert into room_type values(2,'double',200.00);
 insert into room_type values(3,'triple',300.00);
@@ -139,7 +132,7 @@ where type_name = 'president suite';
 
 
 
---Добавяне на информация в таблица room
+
 insert into room values(1,101,1);
 insert into room values(2,102,2);
 insert into room values(3,103,3);
@@ -189,7 +182,7 @@ insert into room values(41,901,6);
 
 
 
---Добавяне на информация в таблица positions
+
 insert into positions values(1,'manager');
 insert into positions values(2,'receptionist');
 insert into positions values(3,'porter');
@@ -198,7 +191,7 @@ insert into positions values(5,'hostess');
 
 
 
---Добавяне на информация в таблица employee
+
 insert into employee values(1,'Toma Tomov',1,'0882960223');
 insert into employee values(2,'Roza Ivanova',5,'0878366213');
 insert into employee values(3,'Radoslav Nikolov',4,'0894735212');
@@ -208,7 +201,7 @@ insert into employee values(6,'Petq Nikolova',2,'0878211318');
 
 
 
---Добавяне на информация в таблица reservation
+
 insert into Reservation values(1,1,6,3,'2021-01-04',7);--3
 insert into Reservation values(2,2,4,12,'2021-01-18',7);--12
 insert into Reservation values(3,3,5,22,'2021-01-25',7);--22
@@ -237,7 +230,7 @@ insert into Reservation values(21,21,1,41,'2021-07-01',30);--41
 
 
 
---2. Търсене на стая по тип,дата,период (свободни стаи)
+--2. Search room by type,date,period
 SELECT r.room_number,rt.type_name,rr.reservation_date FROM room r
 JOIN room_type rt ON r.type_id = rt.type_id
 LEFT JOIN reservation rr ON rr.room_id = r.room_id
@@ -245,9 +238,9 @@ WHERE rt.type_name LIKE '&Type_name' AND (rr.room_id IS NULL OR (  (rr.reservati
  
 
 
---3. Справки за 
+--3. Queries
 
--- Обща сметка на клиент
+-- Total bill of customer
 SELECT c.customer_name, r.reservation_id, r.reservation_date, SUM(r.reservation_period*rt.type_price) "TOTAL BILL" FROM reservation r
 JOIN customer c ON r.customer_id = c.customer_id
 JOIN room rm ON r.room_id = rm.room_id
@@ -258,13 +251,13 @@ Group BY c.customer_name, r.reservation_id, r.reservation_date;
 
 
 
--- Свободни стаи за тип/дата/период
+-- Free rooms for type/date/period
 SELECT r.room_number,rt.type_name,rr.reservation_date FROM room r
 JOIN room_type rt ON r.type_id = rt.type_id
 LEFT JOIN reservation rr ON rr.room_id = r.room_id
 WHERE rt.type_name LIKE '&Type_name' AND (rr.room_id IS NULL OR (  (rr.reservation_date + rr.reservation_period) < to_date('&Reservation_datee','yyyy/mm/dd')  OR  rr.reservation_date > (to_date('&Reservation_datee','yyyy/mm/dd') + '&Reservation_periodd' )  ));
  
--- Резервации за служител подредени по дата
+-- Created reservations of employee ordered by date
 SELECT e.employee_name, r.reservation_id, c.customer_name, r.reservation_date,rm.room_number, r.reservation_period FROM reservation r
 JOIN employee e ON r.employee_id = e.employee_id
 JOIN customer c ON r.customer_id = c.customer_id
@@ -273,7 +266,7 @@ WHERE e.employee_name = '&empl_name'
 ORDER BY r.reservation_date;
 
 
----------Sequence и Triggers за auto increment на ID-та при попълване на данни в таблиците---------
+---------Sequence and Triggers for auto increment of IDs---------
 CREATE SEQUENCE positions_seq START WITH 5;
 CREATE OR REPLACE TRIGGER positions_id_auto_trigger
 BEFORE INSERT ON positions FOR EACH ROW WHEN (NEW.position_id IS NULL)
@@ -324,15 +317,12 @@ END;
 
 
 
---Constraint за уникална позиция
 ALTER TABLE positions
 ADD CONSTRAINT ep_unique UNIQUE (employee_position);
 
---Constraint за уникален телефонен номер на служител
 ALTER TABLE employee
 ADD CONSTRAINT eph_unique UNIQUE (employee_phone);
 
---Constraint за уникален телефонен номер на клиент
 ALTER TABLE customer
 ADD CONSTRAINT cph_unique UNIQUE (customer_phone);
 
@@ -347,7 +337,7 @@ ADD CONSTRAINT room_unique UNIQUE (room_number);
 
 
 
----------------Процедури за изпълнение при въвеждане на данни в таблиците-------------
+---------------Insert Procedures-------------
 
 CREATE OR REPLACE PROCEDURE InsertPosition( 
 in_position_name IN positions.employee_position%TYPE 
@@ -407,7 +397,7 @@ BEGIN
 END;
 --------------------------------------------------------------------------------------
 
----------------Процедури за изпълнение при ъпдейтване на данни в таблиците------------
+---------------Update Procedures------------
 
 CREATE OR REPLACE PROCEDURE UpdatePosition(
 in_position_id IN positions.position_id%TYPE,
@@ -480,7 +470,7 @@ BEGIN
 END;
 --------------------------------------------------------------------------------------
 
----------------Процедури за изпълнение при изтриване на данни от таблиците------------
+---------------Delete Procedures------------
 
 CREATE OR REPLACE PROCEDURE DeletePosition(
 in_position_id IN positions.position_id%TYPE
@@ -530,8 +520,8 @@ BEGIN
 END;
 --------------------------------------------------------------------------------------
 
-------------------Процедура за изпълнение на търсене/резервиране----------------------
---Функция за намиране номер на стая по зададено id(Връща номер на стая)
+
+--Function for finding room by id(returns number of the room)
 CREATE FUNCTION SearchRoomNumberReservation  (in_room_id IN INTEGER)
    RETURN INTEGER 
    IS r_id INTEGER;
@@ -545,7 +535,7 @@ BEGIN
               RETURN r_number; 
 END;
 
---Функция за намиране на id на свободни стаи(Връща id на първата свободна стая която открие)
+--Function for finding id of free rooms(returns id of the first free room found)
 CREATE FUNCTION SearchFreeRoom (in_type IN VARCHAR2,in_date IN DATE,in_period IN INTEGER) 
    RETURN INTEGER 
    IS r_id INTEGER;
@@ -563,7 +553,7 @@ BEGIN
               RETURN r_id; 
 END;
 
---Процедура за резервиране на свободна стая
+--Procedure for reservation of free room
 CREATE OR REPLACE PROCEDURE ReserveRoom(
 in_customer_id IN customer.customer_id%TYPE,
 in_employee_id IN employee.employee_id%TYPE,
@@ -581,7 +571,7 @@ END;
 --EXECUTE ReserveRoom('&customer_id','&employee_id','&room_type','&date','&period');
 --------------------------------------------------------------------------------------
 
------------------------Процедури за изпълнение на справки-----------------------------
+-----------------------Procedures for execution of queries-----------------------------
 
 CREATE OR REPLACE PROCEDURE QueryCustomerBill(
 in_name IN customer.customer_name%TYPE
@@ -643,4 +633,4 @@ END;
 --EXECUTE QueryEmployeeReservations('&employee_name');
 --------------------------------------------------------------------------------------
 
-SET SERVEROUTPUT ON; --Този ред трябва да бъде изпълен, за да се разреши извеждане чрез DBMS_OUTPUT
+SET SERVEROUTPUT ON; --This line should be "run", in order to allow DBMS_OUTPUT
